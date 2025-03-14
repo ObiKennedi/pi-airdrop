@@ -15,7 +15,8 @@
     }
     >div{
         width: 90%;
-        height: 75vh;
+        height: 80vh;
+        padding: 20px;
         display: flex;
         justify-content: space-between;
         @media (max-width:900px) {
