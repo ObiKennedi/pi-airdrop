@@ -1,0 +1,43 @@
+.info {
+    display: flex;
+    padding: 0;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    background: linear-gradient(to bottom, #8000ff, #5a0099, #3a0070, #2e004f);
+
+    >div {
+        width: 35%;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+
+        >h2{
+            font-size: 40px;
+            color: #FFD900;
+            font-weight: 500;
+            
+        }
+        >p:nth-child(2){
+            font-size: 20px;
+            color: #FFF
+        }
+        >p:last-child{
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            >a{
+                width: 45%;
+                width: 200px;
+                >img{
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+    }
+    >img{
+        width: 35%;
+        height: 100%;
+    }
+}

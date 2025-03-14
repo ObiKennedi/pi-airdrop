@@ -1,0 +1,49 @@
+.form{
+    margin-top: 10vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    >h2{
+        font-size: 20px;
+        padding: 20px;
+    }
+    >textarea{
+        width: 70%;
+        height: 50vh;
+        resize: none;
+        padding: 20px;
+        border-radius: 10px;
+        font-size: 17px;
+        font-family: "Inter";
+    }
+    >button{
+        width: 77%;
+        background: #390266FB;
+        padding: 20px;
+        border: none;
+        border-radius: 5px;
+        color: #FFF;
+        font-weight: 500;
+        font-size: 20px;
+    }
+    >div{
+        width: 70%;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        >p.error{
+            font-size: 15px;
+            color: #FF0000;
+        }
+        >p{
+            font-size: 15px;
+            color: #222222;
+            >span{
+                color: #1F4277;
+                cursor: pointer;
+            }
+        }
+    }
+}

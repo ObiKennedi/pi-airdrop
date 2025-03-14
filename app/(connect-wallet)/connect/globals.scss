@@ -1,0 +1,43 @@
+.wallet{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    >img{
+        width: 300px;
+        height: 300px;
+        margin-top: 10vh;
+    }
+    >ul{
+        display: flex;
+        flex-wrap: wrap;
+        list-style: none;
+        padding: 20px;
+        justify-content: space-between;
+        width: 50%;
+        padding: 20px;
+        >li{
+            a{
+                text-align: center;
+                text-decoration: none;
+                >img{
+                    width: 70px;
+                    height: 70px;
+                }
+            }
+        }
+    }
+    >button{
+        background: #390266;
+        border: none;
+        border-radius: 10px;
+        height: 70px;
+        width: 40%;
+        font-size: 20px;
+        font-weight: 500;
+        color: #FFF;
+        cursor: pointer;
+    }
+}
