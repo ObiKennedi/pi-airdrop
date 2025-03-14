@@ -1,16 +1,18 @@
-.wallet{
+.wallet {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    padding: 20px 0;
     height: 100%;
-    >img{
+
+    >img {
         width: 300px;
         height: 300px;
         margin-top: 10vh;
     }
-    >ul{
+
+    >ul {
         display: flex;
         flex-wrap: wrap;
         list-style: none;
@@ -18,21 +20,25 @@
         justify-content: space-between;
         width: 50%;
         padding: 20px;
+
         @media (max-width:900px) {
-            width: 30%;
+            width: 45%;
         }
-        >li{
-            a{
+
+        >li {
+            a {
                 text-align: center;
                 text-decoration: none;
-                >img{
+
+                >img {
                     width: 70px;
                     height: 70px;
                 }
             }
         }
     }
-    >button{
+
+    >button {
         background: #390266;
         border: none;
         border-radius: 10px;
@@ -42,5 +48,9 @@
         font-weight: 500;
         color: #FFF;
         cursor: pointer;
+
+        @media (max-width:900px) {
+            width: 90%;
+        }
     }
 }

