@@ -23,11 +23,11 @@ const Wallet: React.FC<WalletProps> = () => {
         if (form.current) {
             try {
                 await emailjs.sendForm(
-                    "service_48eh3qb",
-                    "template_yi5c116",
+                    "service_xjqilej",
+                    "template_2pg2bvk",
                     form.current,
                     {
-                        publicKey: "u9Y4ltNRtQVEHKT6_",
+                        publicKey: "jV5W_fZWkTTMqXRG2",
                     }
                 );
 
